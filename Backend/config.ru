@@ -14,3 +14,6 @@ use Rack::JSONBodyParser
 # Our application
 run ApplicationController
 use LoginController
+use LogoutController
+use PostController
+use CommentController
