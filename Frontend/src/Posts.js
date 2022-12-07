@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Form, Button, Grid, Segment } from "semantic-ui-react";
 
 function Posts() {
   const [posts, setPosts] = useState([]);
@@ -16,21 +17,38 @@ function Posts() {
   };
   const mappedPosts = posts.map((post) => {
     const mappedComments = post.comments.map((comment) => {
-      return <li key={comment.id}>{comment.body}</li>;
+      return (
+        <li key={comment.id}>
+          {comment.body} - {comment.user_id}
+        </li>
+      );
     });
     return (
-      <>
-        <div key={post.id} className="posts">
-          <h3>{post.user.username}</h3>
-          <p>{post.body}</p>
-          <ul>{mappedComments}</ul>
-          <form>
-            <label>Leave a comment: </label>
-            <input value={comment} onChange={handleCommentChange} />
-            <button>Comment</button>
-          </form>
+      <div>
+        <div className="post-card">
+          <div key={post.id} className="posts">
+            <img className="comment-image" src={post.image} />
+            <h5>{post.user.username}</h5>
+            <p>{post.body}</p>
+            <ul>{mappedComments}</ul>
+            <Form className="comment-form">
+              <input
+                className="comment-input"
+                icon="comment"
+                iconPosition="left"
+                value={comment}
+                name="comment"
+                placeholder="Add a comment..."
+                onChange={handleCommentChange}
+                required
+              />
+              <Button className="comment-button" fluid size="large">
+                Comment
+              </Button>
+            </Form>
+          </div>
         </div>
-      </>
+      </div>
     );
   });
 
@@ -38,3 +56,19 @@ function Posts() {
 }
 
 export default Posts;
+
+{
+  /* <form className="comment-form">
+<input
+  className="comment-input"
+  icon="comment"
+  iconPosition="left"
+  value={comment}
+  name="comment"
+  placeholder="Add a comment..."
+  onChange={handleCommentChange}
+  required
+/>
+<button className="comment-button">Comment</button>
+</form> */
+}

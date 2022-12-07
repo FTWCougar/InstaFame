@@ -1,7 +1,6 @@
 import {
   Form,
   Button,
-  Header,
   Grid,
   Segment,
 } from "semantic-ui-react";
@@ -22,11 +21,9 @@ function Login({ username, password, setUsername, setPassword, handleSubmit }) {
         verticalAlign="middle"
       >
         <Grid.Column style={{ maxWidth: 400 }}>
-          <Header as="h2" color="purple" textAlign="center">
-            Log In
-          </Header>
           <Form size="large" onSubmit={handleSubmit}>
             <Segment stacked>
+              <img className="logo-words" src="./instafame.png" alt='InstaFame' />
               <Form.Input
                 fluid
                 icon="user"
@@ -48,9 +45,11 @@ function Login({ username, password, setUsername, setPassword, handleSubmit }) {
                 type="password"
                 required
               />
-              <Button color="orange" fluid size="large">
+              <Button className="login-button" fluid size="large">
                 Login
               </Button>
+              <br />
+              <p>Need an account? <a href="">Create one here!</a></p>
             </Segment>
           </Form>
         </Grid.Column>
