@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Login from "./Login";
 import { Switch, Route } from "react-router-dom";
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import Home from "./Home";
 import Logout from "./Logout";
@@ -11,7 +11,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const history = useHistory()
+  const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -30,16 +30,21 @@ function App() {
       .then((r) => r.json())
       .then((userObj) => {
         console.log(userObj);
-        setUser(userObj);
+        if (userObj) {
+          setUser(userObj);
+          history.push("/Home");
+        } else {
+          history.push("/");
+          alert("Please try again");
+        }
         setUsername("");
         setPassword("");
-        history.push('/Home')
       });
   }
 
   return (
     <div>
-        <Header />
+      <Header />
       <Switch>
         <Route exact path="/">
           <Login
@@ -50,7 +55,7 @@ function App() {
             password={password}
           />
         </Route>
-        <Route path='/Home'>
+        <Route path="/Home">
           <Logout />
           <Home user={user} />
         </Route>

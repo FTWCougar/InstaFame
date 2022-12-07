@@ -1,8 +1,8 @@
 class CommentController < ApplicationController
     
-    get '/comments' do
-        # binding.pry
-       Comment.all.to_json
+    post '/comments' do
+        binding.pry
+        # Comment.find_by "post_id = ?", params[:]
     end
 
 end

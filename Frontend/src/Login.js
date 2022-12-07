@@ -1,6 +1,13 @@
+import {
+  Form,
+  Button,
+  Header,
+  Grid,
+  Segment,
+} from "semantic-ui-react";
+
 function Login({ username, password, setUsername, setPassword, handleSubmit }) {
-  
-    function handleUsernameChange(e) {
+  function handleUsernameChange(e) {
     setUsername(e.target.value);
   }
 
@@ -9,26 +16,45 @@ function Login({ username, password, setUsername, setPassword, handleSubmit }) {
   }
 
   return (
-    <div>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <input
-          value={username}
-          name="username"
-          placeholder="Username"
-          onChange={handleUsernameChange}
-          required
-        ></input>
-        <input
-          value={password}
-          name="password"
-          placeholder="Password"
-          onChange={handlePasswordChange}
-          type="password"
-          required
-        ></input>
-        <button>Login</button>
-      </form>
-    </div>
+      <Grid
+        textAlign="center"
+        style={{ height: "100vh" }}
+        verticalAlign="middle"
+      >
+        <Grid.Column style={{ maxWidth: 400 }}>
+          <Header as="h2" color="purple" textAlign="center">
+            Log In
+          </Header>
+          <Form size="large" onSubmit={handleSubmit}>
+            <Segment stacked>
+              <Form.Input
+                fluid
+                icon="user"
+                iconPosition="left"
+                value={username}
+                name="username"
+                placeholder="Username"
+                onChange={handleUsernameChange}
+                required
+              />
+              <Form.Input
+                fluid
+                icon="lock"
+                iconPosition="left"
+                value={password}
+                name="password"
+                placeholder="Password"
+                onChange={handlePasswordChange}
+                type="password"
+                required
+              />
+              <Button color="orange" fluid size="large">
+                Login
+              </Button>
+            </Segment>
+          </Form>
+        </Grid.Column>
+      </Grid>
   );
 }
 

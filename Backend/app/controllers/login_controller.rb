@@ -8,10 +8,10 @@ class LoginController < ApplicationController
           session[:user_id] = user.id
           user.to_json
         else
-            { message: "Password Incorrect" }.to_json
+          false.to_json
         end
         else
-           { message: "#{params[:username]} does not exist, please try again, or feel free to create a new account." }.to_json
+          false.to_json
         end 
     end
 

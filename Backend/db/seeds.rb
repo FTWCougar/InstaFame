@@ -8,7 +8,7 @@ liv = User.create(first_name: "Liv", last_name: "Nelson", username: "Shutter_Gir
 marco = User.create(first_name: "Marco", last_name: "Amador", username: "Lost_Boy", password: "789")
 
 puts "🌱 Seeding Posts..."
-p1 = Post.create(user_id: cameron.id, body: "Ruby is a rocks", likes: 5, dislikes: 2, image: nil)
+p1 = Post.create(user_id: cameron.id, body: "Ruby is a rock", likes: 5, dislikes: 2, image: nil)
 p2 = Post.create(user_id: liv.id, body: "Active Record set a new record for me", likes: 89, dislikes: 14, image: nil)
 p3 = Post.create(user_id: cameron.id, body: "JavaScript is the best", likes: 501, dislikes: 500, image: nil)
 p4 = Post.create(user_id: marco.id, body: "Rails makes me want to be derailed", likes: 9, dislikes: 8, image: nil)
