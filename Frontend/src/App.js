@@ -69,7 +69,7 @@ function App() {
         <Route path="/Home">
           <Logout />
           <CreatePost user={user} setPosts={setPosts} posts={posts} />
-          <Home user={user} posts={posts} />
+          <Home user={user} posts={posts} setPosts={setPosts}/>
         </Route>
       </Switch>
     </div>

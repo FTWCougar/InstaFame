@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CreatePost({ user, setPosts, posts }) {
+function CreatePost({ user, setPosts}) {
   const [image, setImage] = useState("");
   const [body, setBody] = useState("");
   // const [newPostArray, setNewPostArray] = useState([])
