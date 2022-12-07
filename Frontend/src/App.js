@@ -2,14 +2,16 @@ import Header from "./Header";
 import Login from "./Login";
 import { Switch, Route } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Home from "./Home";
 import Logout from "./Logout";
+import CreatePost from "./CreatePost";
 
 function App() {
   const [user, setUser] = useState({});
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [posts, setPosts] = useState([]);
 
   const history = useHistory();
 
@@ -42,6 +44,15 @@ function App() {
       });
   }
 
+  useEffect(() => {
+    fetch("http://localhost:9292/posts")
+      .then((r) => r.json())
+      .then((postArray) => {
+        setPosts(postArray);
+        console.log(postArray)
+      });
+  }, []);
+
   return (
     <div>
       <Header />
@@ -57,7 +68,8 @@ function App() {
         </Route>
         <Route path="/Home">
           <Logout />
-          <Home user={user} />
+          <CreatePost user={user} setPosts={setPosts} posts={posts}/>
+          <Home user={user} posts={posts}/>
         </Route>
       </Switch>
     </div>

@@ -1,5 +1,5 @@
 class LoginController < ApplicationController
-    
+
       post "/login" do
         user = User.find_by_username(params[:username])
         if user

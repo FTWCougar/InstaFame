@@ -1,10 +1,10 @@
 import Posts from "./Posts";
 
-function Home() {
+function Home({ posts }) {
   return (
     <div>
       
-      <Posts />
+      <Posts posts={posts}/>
     </div>
   );
 }

@@ -1,17 +1,9 @@
 import { useEffect, useState } from "react";
 import { Form, Button, Grid, Segment } from "semantic-ui-react";
 
-function Posts() {
-  const [posts, setPosts] = useState([]);
+function Posts({ posts }) {
   const [comment, setComment] = useState("");
 
-  useEffect(() => {
-    fetch("http://localhost:9292/posts")
-      .then((r) => r.json())
-      .then((postArray) => {
-        setPosts(postArray);
-      });
-  }, []);
   const handleCommentChange = (e) => {
     setComment(e.target.value);
   };
