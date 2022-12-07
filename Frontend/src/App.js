@@ -49,7 +49,7 @@ function App() {
       .then((r) => r.json())
       .then((postArray) => {
         setPosts(postArray);
-        console.log(postArray)
+        console.log(postArray);
       });
   }, []);
 
@@ -68,8 +68,8 @@ function App() {
         </Route>
         <Route path="/Home">
           <Logout />
-          <CreatePost user={user} setPosts={setPosts} posts={posts}/>
-          <Home user={user} posts={posts}/>
+          <CreatePost user={user} setPosts={setPosts} posts={posts} />
+          <Home user={user} posts={posts} />
         </Route>
       </Switch>
     </div>

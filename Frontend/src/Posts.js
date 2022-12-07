@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Form, Button, Grid, Segment } from "semantic-ui-react";
+import { useState } from "react";
+import { Form, Button } from "semantic-ui-react";
 
 function Posts({ posts }) {
   const [comment, setComment] = useState("");
@@ -8,6 +8,7 @@ function Posts({ posts }) {
     setComment(e.target.value);
   };
   const mappedPosts = posts.map((post) => {
+    console.log(post.comments);
     const mappedComments = post.comments.map((comment) => {
       return (
         <li key={comment.id}>
@@ -19,7 +20,11 @@ function Posts({ posts }) {
       <div>
         <div className="post-card">
           <div key={post.id} className="posts">
-            <img className="comment-image" src={post.image} />
+            <img
+              className="comment-image"
+              src={post.image}
+              alt={post.user.username}
+            />
             <h5>{post.user.username}</h5>
             <p>{post.body}</p>
             <ul>{mappedComments}</ul>
@@ -48,19 +53,3 @@ function Posts({ posts }) {
 }
 
 export default Posts;
-
-{
-  /* <form className="comment-form">
-<input
-  className="comment-input"
-  icon="comment"
-  iconPosition="left"
-  value={comment}
-  name="comment"
-  placeholder="Add a comment..."
-  onChange={handleCommentChange}
-  required
-/>
-<button className="comment-button">Comment</button>
-</form> */
-}

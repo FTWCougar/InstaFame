@@ -3,8 +3,7 @@ import Posts from "./Posts";
 function Home({ posts }) {
   return (
     <div>
-      
-      <Posts posts={posts}/>
+      <Posts posts={posts} />
     </div>
   );
 }

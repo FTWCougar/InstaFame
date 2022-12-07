@@ -17,10 +17,11 @@ function Logout() {
 
   return (
     <span className="logout-banner">
-      <img className="logo" src='instafame-logo.png' alt='InstaFame' />
-      <button className="logout-button" onClick={handleClick}>Log Out</button>
+      <img className="logo" src="instafame-logo.png" alt="InstaFame" />
+      <button className="logout-button" onClick={handleClick}>
+        Log Out
+      </button>
     </span>
-
   );
 }
 
