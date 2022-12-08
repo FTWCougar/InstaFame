@@ -10,4 +10,11 @@ class PostController < ApplicationController
         new_post.to_json(include:[:comments, :user])
     end
 
+    delete '/posts/:id' do
+        binding.pry
+        # Post.find(params[:id]).destroy
+        Post.where
+        # post.id.destroy
+    end
+
 end

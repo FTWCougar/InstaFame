@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Form, Button } from "semantic-ui-react";
 
-const Post = ({ users, post, user, posts, setPosts }) => {
+const Post = ({ users, post, user, posts, setPosts, onDelete, newPosts }) => {
   const [comment, setComment] = useState("");
 //   const [commentUser, setCommentUser] = useState('')
 
@@ -44,13 +44,18 @@ const Post = ({ users, post, user, posts, setPosts }) => {
             commentUser = user.username
         }
     })
-
     return (
       <li key={comment.id}>
         {comment.body} - {commentUser}
       </li>
     );
   });
+
+
+
+
+
+
   return (
     <div key={post.id}>
       <div className="post-card">
