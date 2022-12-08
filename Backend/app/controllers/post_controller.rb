@@ -10,11 +10,24 @@ class PostController < ApplicationController
         new_post.to_json(include:[:comments, :user])
     end
 
-    delete '/posts/:id' do
-        binding.pry
-        # Post.find(params[:id]).destroy
-        Post.where
-        # post.id.destroy
+    patch '/posts/:id' do
+        updatedPost = Post.find(params[:id])
+        # if params[:likes] 
+        #     updatedPost.update(likes: params[:likes])
+        # elsif params[:dislikes] 
+        #     updatedPost.update(dislikes: params[:dislikes])
+        # else
+        #     updatedPost.update(body: params[:body], image: params[:image])
+        # end
+        updatedPost.update(params)
+        "Successfully updated"
+        updatedPost.to_json(include:[:comments, :user])
     end
+
+    delete '/posts/:id' do
+        post = Post.find(params[:id])
+        post.destroy
+        "Successfully deleted"
+     end
 
 end
