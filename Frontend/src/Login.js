@@ -41,7 +41,7 @@ function Login({ username, password, setUsername, setPassword, handleSubmit }) {
             </Button>
             <br />
             <p>
-              Need an account? <a href="">Create one here!</a>
+              Need an account? <a href="/CreateUser">Create one here!</a>
             </p>
           </Segment>
         </Form>

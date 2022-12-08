@@ -1,4 +1,4 @@
-import Header from "./Header";
+// import Header from "./Header";
 import Login from "./Login";
 import { Switch, Route } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import Home from "./Home";
 import Logout from "./Logout";
 import CreatePost from "./CreatePost";
+import CreateUser from "./CreateUser";
 
 function App() {
   const [user, setUser] = useState({});
@@ -64,7 +65,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route exact path="/">
           <Login
@@ -74,6 +75,9 @@ function App() {
             username={username}
             password={password}
           />
+        </Route>
+        <Route path="/CreateUser">
+          <CreateUser/>
         </Route>
         <Route path="/Home">
           <Logout />

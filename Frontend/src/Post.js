@@ -54,6 +54,9 @@ const Post = ({ users, post, user, posts, setPosts }) => {
   return (
     <div key={post.id}>
       <div className="post-card">
+        <div className="delete-post-btn">
+          <span>⊗</span>
+          </div>
         <div key={post.id} className="posts">
           <img
             className="comment-image"
@@ -71,7 +74,6 @@ const Post = ({ users, post, user, posts, setPosts }) => {
               className="comment-input"
               // icon="comment"
               // iconPosition="left"
-              value={comment}
               name="comment"
               placeholder="Add a comment..."
               onChange={handleCommentChange}

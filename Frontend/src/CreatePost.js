@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Form, Button, Grid } from "semantic-ui-react";
+
 
 function CreatePost({ user, setPosts}) {
   const [image, setImage] = useState("");
@@ -38,23 +40,55 @@ function CreatePost({ user, setPosts}) {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className="create-post-form">
-        <input
-          onChange={handleImageChange}
-          value={image}
-          placeholder="Image URL"
-          required
-        ></input>
-        <input
-          onChange={handleCaptionChange}
-          value={body}
-          placeholder="Caption"
-          required
-        ></input>
-        <button>Post</button>
-      </form>
-    </>
+    // <>
+    //   <form onSubmit={handleSubmit} className="create-post-form">
+    //     <input
+    //       onChange={handleImageChange}
+    //       value={image}
+    //       placeholder="Image URL"
+    //       required
+    //     ></input>
+    //     <input
+    //       onChange={handleCaptionChange}
+    //       value={body}
+    //       placeholder="Caption"
+    //       required
+    //     ></input>
+    //     <button>Post</button>
+    //   </form>
+    // </>
+
+
+
+
+    <Grid textAlign="center"  verticalAlign="middle" className="post-input">
+      <Grid.Column style={{ maxWidth: 430 }}>
+        <Form size="large" onSubmit={handleSubmit}>
+         
+            <Form.Input
+              fluid
+              icon="globe"
+              iconPosition="left"
+              placeholder="Insert Image URL Here"
+              onChange={handleImageChange}
+              required
+            />
+            <Form.Input
+              fluid
+              icon="comment"
+              iconPosition="left"
+              placeholder="What would you like to tell the world today"
+              onChange={handleCaptionChange}
+              required
+            />
+            <Button className="post-button" fluid size="large">
+              Create Post
+            </Button>
+       
+        </Form>
+      </Grid.Column>
+    </Grid>
+    
   );
 }
 
