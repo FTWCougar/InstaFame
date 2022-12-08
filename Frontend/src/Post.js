@@ -52,10 +52,14 @@ const Post = ({ users, post, user, posts, setPosts, onDelete, newPosts }) => {
   });
 
   function handleDelete() {
-    fetch(`http://localhost:9292/posts/${post.id}`, {
-      method: "DELETE",
-    });
-    onDelete(post.id);
+    if(user.id === post.user.id){
+      fetch(`http://localhost:9292/posts/${post.id}`, {
+        method: "DELETE",
+      });
+      onDelete(post.id);
+    }else{
+      alert("You can't do that")
+    }
   }
 
   return (
