@@ -1,9 +1,9 @@
 import Posts from "./Posts";
 
-function Home({ posts, user , setPosts}) {
+function Home({users, posts, user , setPosts}) {
   return (
     <div>
-      <Posts posts={posts} user={user}/>
+      <Posts users={users} setPosts={setPosts} posts={posts} user={user}/>
     </div>
   );
 }

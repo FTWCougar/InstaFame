@@ -1,17 +1,11 @@
 import Post from "./Post"
 
-function Posts({ posts, user, setPosts }) {
+function Posts({users, posts, user, setPosts }) {
 
   const mappedPosts = posts.map((post) => {
-    const updatePost = (commentReturn) => {
-      if(commentReturn.post_id === post.id){
-        console.log(post)
 
-
-      }
-    }
     return (
-      <Post updatePost={updatePost} key={post.id} user={user} post={post}/>
+      <Post users={users} posts={posts} setPosts={setPosts} key={post.id} user={user} post={post}/>
     )
   });
 

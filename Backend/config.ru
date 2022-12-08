@@ -17,3 +17,4 @@ use LoginController
 use LogoutController
 use PostController
 use CommentController
+use UserController

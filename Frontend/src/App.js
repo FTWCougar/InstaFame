@@ -12,6 +12,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const history = useHistory();
 
@@ -52,6 +53,14 @@ function App() {
         console.log(postArray);
       });
   }, []);
+  useEffect(() => {
+    fetch("http://localhost:9292/users")
+      .then((r) => r.json())
+      .then((userArray) => {
+        setUsers(userArray);
+        console.log(userArray);
+      });
+  }, []);
 
   return (
     <div>
@@ -69,7 +78,7 @@ function App() {
         <Route path="/Home">
           <Logout />
           <CreatePost user={user} setPosts={setPosts} posts={posts} />
-          <Home user={user} posts={posts} setPosts={setPosts}/>
+          <Home users={users} user={user} posts={posts} setPosts={setPosts}/>
         </Route>
       </Switch>
     </div>
