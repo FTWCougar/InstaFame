@@ -3,7 +3,7 @@ import { Form, Button } from "semantic-ui-react";
 
 const Post = ({ users, post, user, posts, setPosts, onDelete, newPosts }) => {
   const [comment, setComment] = useState("");
-//   const [commentUser, setCommentUser] = useState('')
+  //   const [commentUser, setCommentUser] = useState('')
 
   const handleCommentChange = (e) => {
     setComment(e.target.value);
@@ -38,12 +38,12 @@ const Post = ({ users, post, user, posts, setPosts, onDelete, newPosts }) => {
   };
 
   const mappedComments = post.comments.map((comment) => {
-    let commentUser = ''
-    users.map(user => {
-        if (comment.user_id === user.id){
-            commentUser = user.username
-        }
-    })
+    let commentUser = "";
+    users.map((user) => {
+      if (comment.user_id === user.id) {
+        commentUser = user.username;
+      }
+    });
     return (
       <li key={comment.id}>
         {comment.body} - {commentUser}
@@ -51,17 +51,19 @@ const Post = ({ users, post, user, posts, setPosts, onDelete, newPosts }) => {
     );
   });
 
-
-
-
-
+  function handleDelete() {
+    fetch(`http://localhost:9292/posts/${post.id}`, {
+      method: "DELETE",
+    });
+    onDelete(post.id);
+  }
 
   return (
     <div key={post.id}>
       <div className="post-card">
-        <div className="delete-post-btn">
+        <div className="delete-post-btn" onClick={handleDelete}>
           <span>⊗</span>
-          </div>
+        </div>
         <div key={post.id} className="posts">
           <img
             className="comment-image"

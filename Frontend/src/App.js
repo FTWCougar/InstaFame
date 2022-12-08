@@ -54,6 +54,7 @@ function App() {
         console.log(postArray);
       });
   }, []);
+  
   useEffect(() => {
     fetch("http://localhost:9292/users")
       .then((r) => r.json())
