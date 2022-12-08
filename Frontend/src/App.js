@@ -7,6 +7,7 @@ import Home from "./Home";
 import Logout from "./Logout";
 import CreatePost from "./CreatePost";
 import CreateUser from "./CreateUser";
+import ProfilePage from "./ProfilePage";
 
 function App() {
   const [user, setUser] = useState({});
@@ -84,6 +85,7 @@ function App() {
           <Logout />
           <CreatePost user={user} setPosts={setPosts} posts={posts} />
           <Home users={users} user={user} posts={posts} setPosts={setPosts}/>
+          <ProfilePage user={user} posts={posts} users={users}/>
         </Route>
       </Switch>
     </div>
