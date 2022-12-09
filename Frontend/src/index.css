@@ -1,9 +1,9 @@
 body {
   background: #f3f3f3 !important;
-  margin-top: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  margin-bottom: 40 !important;
+  margin-top: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  margin-bottom: 40px !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -74,7 +74,8 @@ code {
 }
 
 .comment-button,
-.post-button {
+.post-button,
+.edit-button {
   background: #000000 !important;
   color: white !important;
   font-size: 13px !important;
@@ -91,7 +92,8 @@ code {
 }
 
 .comment-button:hover,
-.post-button:hover {
+.post-button:hover,
+.edit-button:hover {
   background-image: linear-gradient(45deg, #b311a1, #ed6115) !important;
   color: white !important;
   font-size: 13px !important;
@@ -215,6 +217,7 @@ code {
 .post-input:focus,
 .user-account:focus {
   border-color: #b311a1 !important;
+  cursor: pointer;
 }
 
 .comment-image {
@@ -246,6 +249,12 @@ a:hover {
 
 .logo {
   max-width: 220px;
+  cursor: pointer;
+}
+
+
+.logo-div:hover {
+  cursor: pointer;
 }
 
 
@@ -314,4 +323,14 @@ h4 {
   display: block;
   font-size: 18px;
   line-height: 18px;
+}
+
+likes{
+  display: inline !important;
+  font-size: 36px;
+}
+
+likes:hover{
+  font-size: 48px;
+  cursor: pointer;
 }

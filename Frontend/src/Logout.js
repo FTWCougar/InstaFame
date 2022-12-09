@@ -17,7 +17,11 @@ function Logout() {
 
   return (
     <span className="logout-banner">
-      <img className="logo" src="instafame-logo.png" alt="InstaFame" />
+      <div className="logo-div">
+        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+          <img className="logo" src="instafame-logo.png" alt="InstaFame" />
+        </a>
+      </div>
       <button className="logout-button" onClick={handleClick}>
         Log Out
       </button>

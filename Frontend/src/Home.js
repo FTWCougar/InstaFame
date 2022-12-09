@@ -18,7 +18,12 @@ function Home({ users, posts, user, setPosts }) {
         </button>
       </div>
       {showProfile ? (
-        <ProfilePage users={users} posts={posts} setPosts={setPosts} user={user} />
+        <ProfilePage
+          users={users}
+          posts={posts}
+          setPosts={setPosts}
+          user={user}
+        />
       ) : (
         <div>
           <CreatePost user={user} setPosts={setPosts} posts={posts} />{" "}

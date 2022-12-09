@@ -1,13 +1,11 @@
-import Header from "./Header";
 import Login from "./Login";
 import { Switch, Route } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "./Home";
 import Logout from "./Logout";
-// import CreatePost from "./CreatePost";
 import CreateUser from "./CreateUser";
-// import ProfilePage from "./ProfilePage";
+
 
 function App() {
   const [user, setUser] = useState({});
@@ -81,14 +79,12 @@ function App() {
           <CreateUser />
         </Route>
         <Route path="/Home">
-          <Header />
           <Logout />
           <div>
             <h1 className="greeting">Welcome, {user.first_name}!</h1>
           </div>
-          {/* <CreatePost user={user} setPosts={setPosts} posts={posts}/> */}
           <Home users={users} user={user} posts={posts} setPosts={setPosts} />
-          {/* <ProfilePage user={user} posts={posts} users={users}/> */}
+          <br />
         </Route>
       </Switch>
     </div>

@@ -1,13 +1,10 @@
 import { useState } from "react";
-import { Form, Button, Grid } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 
 const Post = ({ users, post, user, posts, setPosts }) => {
   const [comment, setComment] = useState("");
-  const [edit, setEdit] = useState(false);
-  // const [updatedPost, setUpdatedPost] = useState({})
   const [likes, setLikes] = useState(post.likes);
   const [dislikes, setDislikes] = useState(post.dislikes);
-  //   const [commentUser, setCommentUser] = useState('')
 
   const handleCommentChange = (e) => {
     setComment(e.target.value);
@@ -55,23 +52,9 @@ const Post = ({ users, post, user, posts, setPosts }) => {
     );
   });
 
-  // function handleDelete() {
-  //   if (user.id === post.user.id) {
-  //     fetch(`http://localhost:9292/posts/${post.id}`, {
-  //       method: "DELETE",
-  //     });
-  //     onDelete(post.id);
-  //   } else {
-  //     alert("You can't do that");
-  //   }
-  // }
-  // const handleClick = () => {
-  //   setEdit(!edit);
-  // };
-
   const handleLike = () => {
     console.log("liked");
-    const likeObj = {likes: post.likes += 1}
+    const likeObj = { likes: (post.likes += 1) };
     const configObject = {
       method: "PATCH",
       headers: {
@@ -80,15 +63,15 @@ const Post = ({ users, post, user, posts, setPosts }) => {
       body: JSON.stringify(likeObj),
     };
     fetch(`http://localhost:9292/posts/${post.id}`, configObject)
-    .then(r => r.json())
-    .then(likes => {
-      console.log(likes)
-      setLikes(likes)
-    })
+      .then((r) => r.json())
+      .then((likes) => {
+        console.log(likes);
+        setLikes(likes);
+      });
   };
   const handleDislike = () => {
     console.log("disliked");
-    const dislikeObj = {dislikes: post.dislikes += 1}
+    const dislikeObj = { dislikes: (post.dislikes += 1) };
     const configObject = {
       method: "PATCH",
       headers: {
@@ -97,87 +80,16 @@ const Post = ({ users, post, user, posts, setPosts }) => {
       body: JSON.stringify(dislikeObj),
     };
     fetch(`http://localhost:9292/posts/${post.id}`, configObject)
-    .then(r => r.json())
-    .then(dislikes => {
-      console.log(dislikes)
-      setDislikes(dislikes)
-    })
+      .then((r) => r.json())
+      .then((dislikes) => {
+        console.log(dislikes);
+        setDislikes(dislikes);
+      });
   };
-
-  // const ShowEdit = () => {
-  //   const [editImage, setEditImage] = useState(post.image);
-  //   const [editBody, setEditBody] = useState(post.body);
-  //   const editBodyChange = (e) => {
-  //     setEditBody(e.target.value);
-  //   };
-  //   const editImageChange = (e) => {
-  //     setEditImage(e.target.value);
-  //   };
-  //   const handleEdit = () => {
-  //     const editObj = {body: editBody, image: editImage}
-  //     const configObject = {
-  //       method: "PATCH",
-  //       headers: {
-  //         "content-type": "application/JSON",
-  //       },
-  //       body: JSON.stringify(editObj),
-  //     };
-  //     fetch(`http://localhost:9292/posts/${post.id}`, configObject)
-  //     .then(r => r.json())
-  //     .then(updatedPost => {
-  //       console.log(updatedPost)
-  //       setPosts(
-  //         posts.map((post) => {
-  //           if (updatedPost.id === post.id) {
-  //             return updatedPost;
-  //           } else return post;
-  //         })
-  //       );
-  //       setEdit(!edit);
-  //     })
-  //   };
-  //   return (
-  //     <Grid textAlign="center" verticalAlign="middle" className="post-input">
-  //       <Grid.Column style={{ maxWidth: 430 }}>
-  //         <Form size="large" onSubmit={handleEdit}>
-  //           <Form.Input
-
-  //             icon="globe"
-  //             iconPosition="left"
-  //             placeholder="Insert Image URL Here"
-  //             onChange={editImageChange}
-  //             value={editImage}
-  //             required
-  //           />
-  //           <Form.Input
-
-  //             icon="comment"
-  //             iconPosition="left"
-  //             placeholder="What would you like to tell the world today"
-  //             onChange={editBodyChange}
-  //             value={editBody}
-  //             required
-  //           />
-  //           <Button className="post-button" fluid size="large">
-  //             Edit Post
-  //           </Button>
-  //         </Form>
-  //       </Grid.Column>
-  //     </Grid>
-  //   );
-  // };
 
   return (
     <div key={post.id}>
       <div className="post-card">
-        {/* <div className="delete-post-btn">
-          <span onClick={handleDelete}>⊗</span>
-        </div> */}
-        {/* <div>
-          <button onClick={handleClick}>Edit</button>
-        </div>
-        <ShowEdit/>
-        {edit && <ShowEdit />} */}
         <br />
         <div key={post.id} className="posts">
           <img
@@ -185,10 +97,10 @@ const Post = ({ users, post, user, posts, setPosts }) => {
             src={post.image}
             alt={post.user.username}
           />
-          <p>
+          <div className="likes">
             <span onClick={handleLike}>👍</span> {post.likes}{" "}
             <span onClick={handleDislike}>👎</span> {post.dislikes}
-          </p>
+          </div>
           <h5>{post.user.username}</h5>
           <p>{post.body}</p>
           <ul>{mappedComments}</ul>
