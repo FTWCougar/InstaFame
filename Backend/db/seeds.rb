@@ -3,9 +3,9 @@ Post.destroy_all
 Comment.destroy_all
 
 puts "🌱 Seeding Users..."
-cameron = User.create(first_name: "Cameron", last_name: "Millen", username: "FTW_Cougar", password: "123")
-liv = User.create(first_name: "Liv", last_name: "Nelson", username: "Shutter_Girl", password: "456")
-marco = User.create(first_name: "Marco", last_name: "Amador", username: "Lost_Boy", password: "789")
+cameron = User.create(first_name: "Cameron", last_name: "Millen", username: "FTW_Cougar", password: "123", profile_img:"https://liv-creative.com/wp-content/uploads/2022/12/cameron.png")
+liv = User.create(first_name: "Liv", last_name: "Nelson", username: "Shutter_Girl", password: "456", profile_img:"https://liv-creative.com/wp-content/uploads/2022/12/liv.png")
+marco = User.create(first_name: "Marco", last_name: "Amador", username: "Lost_Boy", password: "789", profile_img:"https://liv-creative.com/wp-content/uploads/2022/12/marco.png")
 
 puts "🌱 Seeding Posts..."
 p1 = Post.create(user_id: cameron.id, body: "Ruby is a rock", likes: 5, dislikes: 2, image: "https://images.unsplash.com/photo-1551122087-f99a4ade46ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cnVieXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
