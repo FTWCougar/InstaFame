@@ -339,6 +339,21 @@ h4 {
   line-height: 18px;
 }
 
+#post-user-img{
+  max-width: 20px;
+  max-height: 20px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 5px;
+  margin-top: -1px;
+}
+
+.post-user{
+  display: inline;
+  padding-top: 10px;
+  align-content: center;
+}
+
 /* likes{
   position:absolute; 
   display: inline;

@@ -101,7 +101,11 @@ const Post = ({ users, post, user, posts, setPosts }) => {
             <span  class="zoom-box" onClick={handleLike}>👍</span> {post.likes}{" "}
             <span onClick={handleDislike}>👎</span> {post.dislikes}
           </div>
+          <div className="post-user">
+          <img id="post-user-img" src={post.user.profile_img} alt={post.user.username}/>
           <h5>{post.user.username}</h5>
+          </div>
+          <br/>
           <p>{post.body}</p>
           <ul>{mappedComments}</ul>
           <Form onSubmit={handleSubmit} className="comment-form">
