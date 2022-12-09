@@ -20,9 +20,9 @@ p9 = Post.create(user_id: liv.id, body: "Seeding Posts like a boss", likes: 7824
 
 puts "🌱 Seeding Comments..."
 c1 = Comment.create(post_id: p1.id, user_id: cameron.id, likes: 5, dislikes: 0, body: "Love the Post")
-c2 = Comment.create(post_id: p3.id, user_id: cameron.id, likes: 7, dislikes: 0, body: "Cool Beans")
+c2 = Comment.create(post_id: p3.id, user_id: liv.id, likes: 7, dislikes: 0, body: "Cool Beans")
 c3 = Comment.create(post_id: p4.id, user_id: liv.id, likes: 9, dislikes: 0, body: "Hang in there buddy")
-c4 = Comment.create(post_id: p2.id, user_id: liv.id, likes: 2, dislikes: 0, body: "Crushing goals")
+c4 = Comment.create(post_id: p2.id, user_id: cameron.id, likes: 2, dislikes: 0, body: "Crushing goals")
 c5 = Comment.create(post_id: p5.id, user_id: marco.id, likes: 0, dislikes: 0, body: "Yeah it did!")
 c6 = Comment.create(post_id: p6.id, user_id: marco.id, likes: 1, dislikes: 0, body: "Like icing on a cake")
 c7 = Comment.create(post_id: p7.id, user_id: liv.id, likes: 1, dislikes: 0, body: "We've got this!!")

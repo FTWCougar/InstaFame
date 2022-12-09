@@ -12,10 +12,11 @@ function Home({ users, posts, user, setPosts }) {
 
   return (
     <div>
-      <button onClick={handleProfile}>
-        {showProfile ? "Back to Home" : "View Profile"}
-      </button>
-
+      <div className="view-profile">
+        <button className="profile-btn" onClick={handleProfile}>
+          {showProfile ? "Back to Home" : "View Profile"}
+        </button>
+      </div>
       {showProfile ? (
         <ProfilePage users={users} posts={posts} setPosts={setPosts} user={user} />
       ) : (

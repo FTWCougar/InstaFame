@@ -55,7 +55,7 @@ function App() {
         console.log(postArray);
       });
   }, []);
-  
+
   useEffect(() => {
     fetch("http://localhost:9292/users")
       .then((r) => r.json())
@@ -64,7 +64,6 @@ function App() {
         console.log(userArray);
       });
   }, []);
-
 
   return (
     <div>
@@ -79,14 +78,16 @@ function App() {
           />
         </Route>
         <Route path="/CreateUser">
-          <CreateUser/>
+          <CreateUser />
         </Route>
         <Route path="/Home">
           <Header />
           <Logout />
-          <h1>Welcome, {user.first_name}!</h1>
+          <div>
+            <h1 className="greeting">Welcome, {user.first_name}!</h1>
+          </div>
           {/* <CreatePost user={user} setPosts={setPosts} posts={posts}/> */}
-          <Home users={users} user={user} posts={posts} setPosts={setPosts}/>
+          <Home users={users} user={user} posts={posts} setPosts={setPosts} />
           {/* <ProfilePage user={user} posts={posts} users={users}/> */}
         </Route>
       </Switch>

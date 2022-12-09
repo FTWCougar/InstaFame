@@ -78,9 +78,9 @@ function ProfilePosts({posts, user, setPosts, post, users}) {
             });
         };
         return (
-          <Grid textAlign="center" verticalAlign="middle" className="post-input">
+          <Grid textAlign="center" verticalAlign="middle" >
             <Grid.Column style={{ maxWidth: 430 }}>
-              <Form size="large" onSubmit={handleEdit}>
+              <Form size="large" onSubmit={handleEdit} className="edit-post">
                 <Form.Input
                   icon="globe"
                   iconPosition="left"
@@ -97,7 +97,7 @@ function ProfilePosts({posts, user, setPosts, post, users}) {
                   value={editBody}
                   required
                 />
-                <Button className="post-button" fluid size="large">
+                <Button className="edit-button" fluid size="large">
                   Edit Post
                 </Button>
               </Form>
@@ -111,20 +111,20 @@ function ProfilePosts({posts, user, setPosts, post, users}) {
 
       <div key={post.id}>
         <div className="post-card">
+          <div className="post-banner">
+          <div>
+            <button className="edit-btn" onClick={handleClick}>Edit</button>
+          </div>
           <div className="delete-post-btn">
             <span onClick={handleDelete}>⊗</span>
           </div>
-          <div>
-            <button onClick={handleClick}>Edit</button>
           </div>
-
           {edit && <ShowEdit />}
           <img className="comment-image" src={post.image} alt={post.body} />
           <h1>{post.body}</h1>
           <span>{mappedComments}</span>
         </div>
       </div>
-    
   );
 }
 
