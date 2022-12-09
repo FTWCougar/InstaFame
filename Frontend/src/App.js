@@ -6,8 +6,8 @@ import Home from "./Home";
 import Logout from "./Logout";
 import CreateUser from "./CreateUser";
 
-
 function App() {
+  
   const [user, setUser] = useState({});
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -47,7 +47,7 @@ function App() {
         }
         setUsername("");
         setPassword("");
-        setShowProfile(false)
+        setShowProfile(false);
       });
   }
 
@@ -84,12 +84,19 @@ function App() {
         <Route path="/CreateUser">
           <CreateUser />
         </Route>
-        <Route path="/Home" >
-          <Logout user={user} handleProfile={handleProfile}/>
+        <Route path="/Home">
+          <Logout user={user} handleProfile={handleProfile} />
           <div>
             <h1 className="greeting">Welcome, {user.first_name}!</h1>
           </div>
-          <Home users={users} user={user} posts={posts} setPosts={setPosts} handleProfile={handleProfile} showProfile={showProfile}/>
+          <Home
+            users={users}
+            user={user}
+            posts={posts}
+            setPosts={setPosts}
+            handleProfile={handleProfile}
+            showProfile={showProfile}
+          />
           <br />
         </Route>
       </Switch>

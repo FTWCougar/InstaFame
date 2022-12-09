@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Form, Button, Grid } from "semantic-ui-react";
 
 function ProfilePosts({ posts, user, setPosts, post, users }) {
+  
   const [likes, setLikes] = useState(post.likes);
   const [dislikes, setDislikes] = useState(post.dislikes);
 
@@ -157,26 +158,28 @@ function ProfilePosts({ posts, user, setPosts, post, users }) {
         {edit && <ShowEdit />}
         <img className="comment-image" src={post.image} alt={post.body} />
         <div>
-            <span class="zoom-box" onClick={handleLike}>
-              👍
-            </span>
-            <span className="like-text">{post.likes} </span>
-            <span class="zoom-box" onClick={handleDislike}>
-              👎
-            </span>
-            <span className="like-text">{post.dislikes}</span>
-          </div>
-          <div className="post-user">
-            <img
-              id="post-user-img"
-              src={post.user.profile_img}
-              alt={post.user.username}
-            />
-            <h4>{post.user.username}</h4>
-          </div>
+          <span class="zoom-box" onClick={handleLike}>
+            👍
+          </span>
+          <span className="like-text">{post.likes} </span>
+          <span class="zoom-box" onClick={handleDislike}>
+            👎
+          </span>
+          <span className="like-text">{post.dislikes}</span>
+        </div>
+        <div className="post-user">
+          <img
+            id="post-user-img"
+            src={post.user.profile_img}
+            alt={post.user.username}
+          />
+          <h4>{post.user.username}</h4>
+        </div>
         <dl>
-        <dt><strong>{post.body}</strong></dt>
-        <span>{mappedComments}</span>
+          <dt>
+            <strong>{post.body}</strong>
+          </dt>
+          <span>{mappedComments}</span>
         </dl>
       </div>
     </div>

@@ -1,9 +1,7 @@
 import Post from "./Post";
-// import {useState} from "react"
 
 function Posts({ users, posts, user, setPosts }) {
-  // const [newPosts, setNewPosts] = useState([])
-
+  
   const mappedPosts = posts.map((post) => {
     return (
       <Post

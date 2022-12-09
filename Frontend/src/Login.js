@@ -1,6 +1,7 @@
 import { Form, Button, Grid, Segment } from "semantic-ui-react";
 
 function Login({ username, password, setUsername, setPassword, handleSubmit }) {
+  
   function handleUsernameChange(e) {
     setUsername(e.target.value);
   }

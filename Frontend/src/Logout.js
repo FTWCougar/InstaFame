@@ -1,7 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-function Logout({user, handleProfile}) {
+function Logout({ user, handleProfile }) {
+  
   const history = useHistory();
 
   function handleClick(e) {
@@ -17,17 +18,26 @@ function Logout({user, handleProfile}) {
 
   return (
     <span className="logout-banner">
-      {/* <div className="logo-div"> */}
       <div>
         <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-          <img id="left" className="logo" src="instafame-logo.png" alt="InstaFame" />
+          <img
+            id="left"
+            className="logo"
+            src="instafame-logo.png"
+            alt="InstaFame"
+          />
         </a>
       </div>
       <div className={"banner-buttons"}>
-        <img id="avatar" src={user.profile_img} alt={user.username} onClick={handleProfile}/>
-      <button id="far-right" className="logout-button" onClick={handleClick}>
-        Log Out
-      </button>
+        <img
+          id="avatar"
+          src={user.profile_img}
+          alt={user.username}
+          onClick={handleProfile}
+        />
+        <button id="far-right" className="logout-button" onClick={handleClick}>
+          Log Out
+        </button>
       </div>
     </span>
   );

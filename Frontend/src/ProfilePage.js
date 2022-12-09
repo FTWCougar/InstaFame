@@ -1,6 +1,7 @@
 import ProfilePosts from "./ProfilePosts";
 
 function ProfilePage({ user, posts, users, setPosts }) {
+  
   const filteredPosts = posts.filter((post) => {
     return post.user.id === user.id;
   });

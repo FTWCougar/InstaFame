@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Grid } from "semantic-ui-react";
 
 function CreatePost({ user, setPosts }) {
+  
   const [image, setImage] = useState("");
   const [body, setBody] = useState("");
   // const [newPostArray, setNewPostArray] = useState([])
