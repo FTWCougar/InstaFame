@@ -261,6 +261,7 @@ a:hover {
 }
 
 #avatar{
+  cursor: pointer;
   display:flex;
   align-content: right;
   text-align: right;
@@ -354,7 +355,7 @@ h4 {
   align-content: center;
 }
 
-/* likes{
+/* .likes{
   position:absolute; 
   display: inline;
   font-size: 36px;
@@ -362,7 +363,7 @@ h4 {
   margin-top: 0px;
 }
 
-likes:hover{
+.likes:hover{
   font-size: 48px;
   cursor: pointer;
   margin-top: -5px;
@@ -377,10 +378,7 @@ likes:hover{
   width: 100px;
   height: 100px;
   margin: 32px auto;
-  transition: transform .2s; /* Animation */
+  transition: transform .2s; 
   z-index: 9999;
-}
-
-.zoom-box:hover {
-  transform: scale(1.5);
+  cursor: pointer;
 }

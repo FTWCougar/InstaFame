@@ -98,8 +98,8 @@ const Post = ({ users, post, user, posts, setPosts }) => {
             alt={post.user.username}
           />
           <div>
-            <span  class="zoom-box" onClick={handleLike}>👍</span> {post.likes}{" "}
-            <span onClick={handleDislike}>👎</span> {post.dislikes}
+            <span class="zoom-box" onClick={handleLike}>👍</span> {post.likes}{" "}
+            <span class="zoom-box" onClick={handleDislike}>👎</span> {post.dislikes}
           </div>
           <div className="post-user">
           <img id="post-user-img" src={post.user.profile_img} alt={post.user.username}/>
