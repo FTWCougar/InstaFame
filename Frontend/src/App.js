@@ -47,6 +47,7 @@ function App() {
         }
         setUsername("");
         setPassword("");
+        setShowProfile(false)
       });
   }
 
