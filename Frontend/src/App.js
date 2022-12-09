@@ -1,4 +1,4 @@
-// import Header from "./Header";
+import Header from "./Header";
 import Login from "./Login";
 import { Switch, Route } from "react-router-dom";
 import { useHistory } from "react-router-dom";
@@ -65,9 +65,9 @@ function App() {
       });
   }, []);
 
+
   return (
     <div>
-      {/* <Header /> */}
       <Switch>
         <Route exact path="/">
           <Login
@@ -82,10 +82,12 @@ function App() {
           <CreateUser/>
         </Route>
         <Route path="/Home">
+          <Header />
           <Logout />
-          <CreatePost user={user} setPosts={setPosts} posts={posts} />
+          <h1>Welcome, {user.first_name}!</h1>
+          {/* <CreatePost user={user} setPosts={setPosts} posts={posts}/> */}
           <Home users={users} user={user} posts={posts} setPosts={setPosts}/>
-          <ProfilePage user={user} posts={posts} users={users}/>
+          {/* <ProfilePage user={user} posts={posts} users={users}/> */}
         </Route>
       </Switch>
     </div>

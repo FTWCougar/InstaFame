@@ -7,6 +7,9 @@ function CreatePost({ user, setPosts}) {
   const [body, setBody] = useState("");
   // const [newPostArray, setNewPostArray] = useState([])
 
+
+  
+
   function handleSubmit(e) {
     e.preventDefault();
     console.log("submitted");
@@ -40,27 +43,11 @@ function CreatePost({ user, setPosts}) {
   }
 
   return (
-    // <>
-    //   <form onSubmit={handleSubmit} className="create-post-form">
-    //     <input
-    //       onChange={handleImageChange}
-    //       value={image}
-    //       placeholder="Image URL"
-    //       required
-    //     ></input>
-    //     <input
-    //       onChange={handleCaptionChange}
-    //       value={body}
-    //       placeholder="Caption"
-    //       required
-    //     ></input>
-    //     <button>Post</button>
-    //   </form>
-    // </>
 
 
 
 
+    
     <Grid textAlign="center"  verticalAlign="middle" className="post-input">
       <Grid.Column style={{ maxWidth: 430 }}>
         <Form size="large" onSubmit={handleSubmit}>
