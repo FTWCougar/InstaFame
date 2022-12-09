@@ -3,6 +3,9 @@ import { useState } from "react";
 import { Form, Button, Grid } from "semantic-ui-react";
 
 function ProfilePosts({ posts, user, setPosts, post, users }) {
+  const [likes, setLikes] = useState(post.likes);
+  const [dislikes, setDislikes] = useState(post.dislikes);
+
   const mappedComments = post.comments.map((comment) => {
     let commentUser = "";
     users.map((user) => {
@@ -12,7 +15,7 @@ function ProfilePosts({ posts, user, setPosts, post, users }) {
     });
     return (
       <li key={comment.id}>
-        {comment.body} - {commentUser}
+        {comment.body} - <em>{commentUser}</em>
       </li>
     );
   });
@@ -103,6 +106,41 @@ function ProfilePosts({ posts, user, setPosts, post, users }) {
     );
   };
 
+  const handleLike = () => {
+    console.log("liked");
+    const likeObj = { likes: (post.likes += 1) };
+    const configObject = {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/JSON",
+      },
+      body: JSON.stringify(likeObj),
+    };
+    fetch(`http://localhost:9292/posts/${post.id}`, configObject)
+      .then((r) => r.json())
+      .then((likes) => {
+        console.log(likes);
+        setLikes(likes);
+      });
+  };
+  const handleDislike = () => {
+    console.log("disliked");
+    const dislikeObj = { dislikes: (post.dislikes += 1) };
+    const configObject = {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/JSON",
+      },
+      body: JSON.stringify(dislikeObj),
+    };
+    fetch(`http://localhost:9292/posts/${post.id}`, configObject)
+      .then((r) => r.json())
+      .then((dislikes) => {
+        console.log(dislikes);
+        setDislikes(dislikes);
+      });
+  };
+
   return (
     <div key={post.id}>
       <div className="post-card">
@@ -118,8 +156,28 @@ function ProfilePosts({ posts, user, setPosts, post, users }) {
         </div>
         {edit && <ShowEdit />}
         <img className="comment-image" src={post.image} alt={post.body} />
-        <h1>{post.body}</h1>
+        <div>
+            <span class="zoom-box" onClick={handleLike}>
+              👍
+            </span>
+            <span className="like-text">{post.likes} </span>
+            <span class="zoom-box" onClick={handleDislike}>
+              👎
+            </span>
+            <span className="like-text">{post.dislikes}</span>
+          </div>
+          <div className="post-user">
+            <img
+              id="post-user-img"
+              src={post.user.profile_img}
+              alt={post.user.username}
+            />
+            <h4>{post.user.username}</h4>
+          </div>
+        <dl>
+        <dt><strong>{post.body}</strong></dt>
         <span>{mappedComments}</span>
+        </dl>
       </div>
     </div>
   );

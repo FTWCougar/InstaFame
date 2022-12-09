@@ -47,7 +47,7 @@ const Post = ({ users, post, user, posts, setPosts }) => {
     });
     return (
       <li key={comment.id}>
-        {comment.body} - {commentUser}
+        {comment.body} - <em>{commentUser}</em>
       </li>
     );
   });
@@ -98,16 +98,29 @@ const Post = ({ users, post, user, posts, setPosts }) => {
             alt={post.user.username}
           />
           <div>
-            <span class="zoom-box" onClick={handleLike}>👍</span> {post.likes}{" "}
-            <span class="zoom-box" onClick={handleDislike}>👎</span> {post.dislikes}
+            <span class="zoom-box" onClick={handleLike}>
+              👍
+            </span>
+            <span className="like-text">{post.likes} </span>
+            <span class="zoom-box" onClick={handleDislike}>
+              👎
+            </span>
+            <span className="like-text">{post.dislikes}</span>
           </div>
           <div className="post-user">
-          <img id="post-user-img" src={post.user.profile_img} alt={post.user.username}/>
-          <h5>{post.user.username}</h5>
+            <img
+              id="post-user-img"
+              src={post.user.profile_img}
+              alt={post.user.username}
+            />
+            <h4>{post.user.username}</h4>
           </div>
-          <br/>
-          <p>{post.body}</p>
-          <ul>{mappedComments}</ul>
+          <dl>
+            <dt>
+              <strong>{post.body}</strong>
+            </dt>
+            <dt>{mappedComments}</dt>
+          </dl>
           <Form onSubmit={handleSubmit} className="comment-form">
             <input
               className="comment-input"
