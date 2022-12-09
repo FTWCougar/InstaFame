@@ -3,12 +3,12 @@ import CreatePost from "./CreatePost";
 import ProfilePage from "./ProfilePage";
 import { useState } from "react";
 
-function Home({ users, posts, user, setPosts }) {
-  const [showProfile, setShowProfile] = useState(false);
+function Home({ users, posts, user, setPosts, handleProfile, showProfile }) {
+  
 
-  function handleProfile() {
-    setShowProfile(!showProfile);
-  }
+  // function handleProfile() {
+  //   setShowProfile(!showProfile);
+  // }
 
   return (
     <div>
