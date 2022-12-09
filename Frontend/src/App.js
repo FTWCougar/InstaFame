@@ -5,9 +5,9 @@ import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "./Home";
 import Logout from "./Logout";
-import CreatePost from "./CreatePost";
+// import CreatePost from "./CreatePost";
 import CreateUser from "./CreateUser";
-import ProfilePage from "./ProfilePage";
+// import ProfilePage from "./ProfilePage";
 
 function App() {
   const [user, setUser] = useState({});

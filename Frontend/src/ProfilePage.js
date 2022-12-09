@@ -23,6 +23,7 @@ function ProfilePage({ user, posts, users, setPosts }) {
   return (
     <div>
       <div className="view-profile">
+          <img  className="profile-img" src={user.profile_img} alt={user.username}/>
         <div className="profile-details">
           <h4>Your name: {user.first_name} {user.last_name}</h4>
           <h4>Your username: {user.username}</h4>

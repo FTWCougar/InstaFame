@@ -12,7 +12,7 @@ function Home({ users, posts, user, setPosts }) {
 
   return (
     <div>
-      <div className="view-profile">
+      <div className="view-profile-btn">
         <button className="profile-btn" onClick={handleProfile}>
           {showProfile ? "Back to Home" : "View Profile"}
         </button>
