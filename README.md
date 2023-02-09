@@ -1,8 +1,5 @@
 <img src='https://liv-creative.com/wp-content/uploads/2023/02/instafame-logo.png' alt='InstaFame' width='200'>
 
-## Authors
-Liv Nelson, Cameron Miller, Marco Amador
-
 ## Introduction
 Welcome to InstaFame, a web application that replicates the basic features of the popular photo-sharing platform Instagram. This application was built with a React front-end and a Ruby on Rails back-end. The goal of this application is to provide a platform for users to share and view photos with friends, family, and followers.
 
@@ -27,3 +24,6 @@ Database: PostgreSQL
 
 ## Conclusion
 We hope this application provides a fun and easy way to share and view photos with friends, family, and followers. Enjoy!
+
+## Authors
+Liv Nelson, Cameron Millen, Marco Amador
